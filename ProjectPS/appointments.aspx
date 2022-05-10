@@ -61,7 +61,11 @@
                         </div>
                          <div class="form-group">
                             <label>שעות פנויות</label>
-                            <asp:DropDownList type='text' class="form-control" name="edate" ID="etime" runat="server"></asp:DropDownList>
+                            <asp:DropDownList type='text' class="form-control" name="edate" ID="etime" runat="server">
+                                <asp:ListItem>10:00:00</asp:ListItem>
+                                <asp:ListItem>13:00:00</asp:ListItem>
+                                <asp:ListItem>15:00:00</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <%--<div class="form-group">
                         <label>סוג תור/צבע</label>

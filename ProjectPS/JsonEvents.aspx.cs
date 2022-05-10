@@ -53,8 +53,8 @@ namespace ProjectPS
                     id = row.Field<int>("appointCode"),
                     title = "treatment",
 
-                    start = startString, //"2021-12-23T11:30:00", //String.Format("{0:s}", start),
-                    end = endString, //"2021-12-23T12:30:00", // String.Format("{0:s}", end),
+                    start = startString, //"2021-12-23T11:30:00", String.Format("{0:s}", start),
+                    end = endString, //"2021-12-23T12:30:00", String.Format("{0:s}", end),
 
                     description = "description",
                     allDay = false,

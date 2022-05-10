@@ -29,7 +29,7 @@ namespace ProjectPS
                 //}
                 getClientInfo(GridClientAppiont, clientNameLable);
         }
-        public void getClientInfo(GridView GridClientAppiont, Label clientNameLable)
+        public void getClientInfo(GridView GridClientAppiont, Label clientNameLable) //use DAL to get client's info and update client's table
         {
             if (Session["UserEmail"] != null)
             {

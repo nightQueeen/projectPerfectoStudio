@@ -15,6 +15,7 @@ namespace ProjectPS
             TextBoxEmail.BorderColor = System.Drawing.Color.Gray;
             TextBoxPasswordLogin.BorderColor = System.Drawing.Color.Gray;
         }
+        //trxfdgjh
         bool isLoggedIn = false;
         bool flagIsEmpty = false;
 

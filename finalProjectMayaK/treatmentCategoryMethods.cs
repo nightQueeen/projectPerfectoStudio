@@ -11,18 +11,18 @@ namespace DAL
     public class treatmentCategoryMethods
     {
         //---------GET---------
-        public static DataTable GetAllCategoryNames()
+        public static DataTable GetAllCategoryNames() //get all names
         {
             string com = $"SELECT categoryName FROM TreatmentCategory";
             return oledbhelper.GetTable(com);
         }
-        public static DataTable GetCategoryIDByName(string categoryName) //
+        public static DataTable GetCategoryIDByName(string categoryName) //get id by name
         {
             string com = $"SELECT categoryCode FROM TreatmentCategory WHERE categoryName = {categoryName}";
             return oledbhelper.GetTable(com);
         }
 
-        public static int GetCategoryIDByName2(string categoryName) //sdfghj
+        public static int GetCategoryIDByName2(string categoryName) //get id by name => return int
         {
             string com = $"SELECT categoryCode FROM TreatmentCategory WHERE categoryName = '{categoryName}'";
             DataTable dt = oledbhelper.GetTable(com);
@@ -34,7 +34,7 @@ namespace DAL
             return -1;
         }
         //---------ADD---------
-        public static void addTreatmentCategory(string categoryName)
+        public static void addTreatmentCategory(string categoryName) //add category
         {
             string com = "INSERT INTO TreatmentCategory(categoryName) VALUES ('" + categoryName + "')";
             oledbhelper.Execute(com);

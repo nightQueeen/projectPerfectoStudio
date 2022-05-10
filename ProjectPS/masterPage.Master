@@ -56,10 +56,6 @@
                                 <a class="nav-link" visible="false" ID="managerPage" runat="server" href="managerPage.aspx">עריכת תורים</a>
                             </li>
                         </ul>
-                        <div class="d-flex justify-content-end">
-                            <asp:TextBox class="form-control me-sm-2" ID="Search" runat="server" placeholder="Search"></asp:TextBox>
-                            <asp:Button class="btn btn-secondary my-2 my-sm-0" ID="searchButton" runat="server" Text="חפש/י" />
-                        </div>
 
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">

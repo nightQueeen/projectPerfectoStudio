@@ -20,13 +20,11 @@ namespace ProjectPS
         protected void ButtonSend_Click(object sender, EventArgs e)
         {
             dataGridAppoint.Visible = true;
-            if (textBoxDOB.Text != "")
+            if (textBoxDOB.Text != "") //input appointments info by DAL and recived dateTime
             {
                 LabelGridNull.Visible = false;
                 DateTime d = DateTime.Parse(textBoxDOB.Text);
-                //TimeSpan ts = new TimeSpan(00, 00, 00);
-                //d = d.Date + ts;
-                //DateTime dt = new DateTime(2022, 11, 06, 00, 00, 00);
+
                 dataGridAppoint.DataSource = null;
                 //dataGridAppoint.DataSource = DAL.appointmentMethods.GetAllAppointments();
                 dataGridAppoint.DataSource = DAL.appointmentMethods.GetAppointmentsByDate(d);
@@ -56,7 +54,7 @@ namespace ProjectPS
         protected void ButtonSend2_Click(object sender, EventArgs e)
         {
             GridViewDelete.Visible = true;
-            if (textBoxDOB2.Text != "")
+            if (textBoxDOB2.Text != "")//input appointments info by DAL and recived dateTime
             {
                 LabelGridDeleteNull.Visible = false;
                 DateTime d = DateTime.Parse(textBoxDOB2.Text);

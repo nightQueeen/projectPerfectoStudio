@@ -36,7 +36,7 @@ namespace DAL
             string com = $"select clientCode FROM Client where clientEmail='{x}'";
             return oledbhelper.GetTable(com);
         }
-        public static bool IsExistsEmail(string x)
+        public static bool IsExistsEmail(string x) //check if email exists
         {
             string com = $"select * from Client where clientEmail= '{x.Replace("'", "''")}'";
             DataTable tbl = oledbhelper.GetTable(com);
@@ -44,7 +44,7 @@ namespace DAL
                 return false;
             return true;
         }
-        public static bool IsExistsPhoneNum(string x)
+        public static bool IsExistsPhoneNum(string x) //check if phone number exists
         {
             string com = $"select * from Client where clientPhoneNum= '{x.Replace("'", "''")}'";
             DataTable tbl = oledbhelper.GetTable(com);
@@ -62,7 +62,7 @@ namespace DAL
                 " VALUES ('" + clientFirstName + "','" + clientLastName + "','" + clientPhoneNum + "','" + clientEmail + "','" + clientPassword + "','" + clientDOB + "')";
             oledbhelper.Execute(com);
         }
-        public static void UpdateClient(string clientName, string clientPhoneNum, string clientEmail, string clientPassword, DateTime clientDOB)//Add new user
+        public static void UpdateClient(string clientName, string clientPhoneNum, string clientEmail, string clientPassword, DateTime clientDOB)//update user's information
         {
             string com = $"update Client set clientName = {clientName}, clientPhoneNum = {clientPhoneNum}, clientEmail = {clientEmail}, clientPassword = {clientPassword}" +
                 $" where clientDOB = {clientDOB}";
@@ -71,7 +71,7 @@ namespace DAL
 
 
         //--------check--------
-        public static bool UserLoginEmailPass(string clientEmail, string clientPassword) //login
+        public static bool UserLoginEmailPass(string clientEmail, string clientPassword) //check if clients exists
         {
             string com = $"SELECT * FROM Client WHERE clientEmail = '{clientEmail.Replace("'", "''")}' AND clientPassword = '{clientPassword.Replace("'", "''")}'";
             DataTable tbl = oledbhelper.GetTable(com);
@@ -84,7 +84,7 @@ namespace DAL
             return true;
         }
         //-------delete--------
-        public static void deleteUser(string clientEmail, string clientPassword)
+        public static void deleteUser(string clientEmail, string clientPassword) //delete user
         {
             string com = $"DELETE FROM Client WHERE clientEmail = {clientEmail.Replace("'", "''")} AND clientPassword = {clientPassword.Replace("'", "''")}";
             oledbhelper.Execute(com);

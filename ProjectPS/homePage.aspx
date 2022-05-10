@@ -23,22 +23,22 @@
                     <div class="carousel-item active">
                         <img src="images/nailsWideTemp.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>תמונה ראשונה</h5>
-                            <p>טקסט טקסט טקסט</p>
+                            <h5>לק ג'ל קלאסי</h5>
+                            <p>הנחה של 15% בקנייה ראשונה!</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/nailsWide2Temp.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>תמונה שנייה</h5>
-                            <p>טקסט טקסט טקסט</p>
+                            <h5>לק ג'ל</h5>
+                            <p>הנחה של 15% בקנייה ראשונה!</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/nailsWide3Temp.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>תמונה שלישית</h5>
-                            <p>טקסט טקסט טקסט</p>
+                            <h5>לק עם בנייה</h5>
+                            <p>הנחה של 15% בקנייה ראשונה!</p>
                         </div>
                     </div>
                 </div>

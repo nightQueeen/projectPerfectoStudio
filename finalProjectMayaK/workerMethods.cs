@@ -11,19 +11,19 @@ namespace DAL
     public class workerMethods
     {
         //---------GET---------
-        public static DataTable GetWorkers()
+        public static DataTable GetWorkers() //get all names
         {
             string com = $"SELECT workerName FROM Worker";
             return oledbhelper.GetTable(com);
         }
-        public static DataTable GetWorkerByTreatmentCode(int treatmentCode)
+        public static DataTable GetWorkerByTreatmentCode(int treatmentCode) //get names by profession
         {
             string com = $"select workerName from workerName where treatmentCode={treatmentCode}";
             return oledbhelper.GetTable(com);
         }
 
         //---------ADD---------
-        public static void addWorker(string workerName)
+        public static void addWorker(string workerName) //add
         {
             string com = "INSERT INTO Worker(workerName) VALUES ('" + workerName + "')";
             oledbhelper.Execute(com);

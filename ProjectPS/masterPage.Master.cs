@@ -11,7 +11,7 @@ namespace ProjectPS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["isManager"] != null)
+            if (Session["isManager"] != null) //check if client is manager
             {
                 if (Session["isManager"].ToString() == "true")
                 {
@@ -22,7 +22,7 @@ namespace ProjectPS
                     managerPage.Visible = false;
                 }
             }
-            if (Session["isLoggedIn"] != null)
+            if (Session["isLoggedIn"] != null) //check if client is logged in
             {
                 if (Session["isLoggedIn"].ToString() == "true")
                 {

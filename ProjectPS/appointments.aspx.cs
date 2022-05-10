@@ -18,7 +18,7 @@ namespace ProjectPS
         }
         public bool isDropdownLoad = false;
         public bool flagIsEmpty = false;
-        public void ErrorIsEmpty(string txt)
+        public void ErrorIsEmpty(string txt) //check is string empty?
         {
             if (txt == "")
             {
