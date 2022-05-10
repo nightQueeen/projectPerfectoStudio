@@ -11,12 +11,28 @@ namespace DAL
     public class treatmentCategoryMethods
     {
         //---------GET---------
-        public static DataTable GetTreatmentCategoryName()
+        public static DataTable GetAllCategoryNames()
         {
-            string com = $"select categoryName from TreatmentCategory";
+            string com = $"SELECT categoryName FROM TreatmentCategory";
+            return oledbhelper.GetTable(com);
+        }
+        public static DataTable GetCategoryIDByName(string categoryName) //
+        {
+            string com = $"SELECT categoryCode FROM TreatmentCategory WHERE categoryName = {categoryName}";
             return oledbhelper.GetTable(com);
         }
 
+        public static int GetCategoryIDByName2(string categoryName) //sdfghj
+        {
+            string com = $"SELECT categoryCode FROM TreatmentCategory WHERE categoryName = '{categoryName}'";
+            DataTable dt = oledbhelper.GetTable(com);
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return int.Parse(dr["categoryCode"].ToString());
+            }
+            return -1;
+        }
         //---------ADD---------
         public static void addTreatmentCategory(string categoryName)
         {

@@ -26,6 +26,16 @@ namespace DAL
             string com = $"select * from Client where clientName='{x.Replace("'", "''")}'";
             return oledbhelper.GetTable(com);
         }
+        public static DataTable GetNameByEmail(string x)//name by email
+        {
+            string com = $"select clientFirstName from Client where clientEmail='{x}'";
+            return oledbhelper.GetTable(com);
+        }
+        public static DataTable GetClientIdByEmail(string x)//ID by email
+        {
+            string com = $"select clientCode FROM Client where clientEmail='{x}'";
+            return oledbhelper.GetTable(com);
+        }
         public static bool IsExistsEmail(string x)
         {
             string com = $"select * from Client where clientEmail= '{x.Replace("'", "''")}'";

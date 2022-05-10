@@ -28,11 +28,15 @@ namespace ProjectPS
                 {
                     dropdownLogin.Visible = false;
                     dropdownRegister.Visible = false;
+                    appointPage.Visible = true;
+                    //dropdownMenuButton.Text = Session["UserName"].ToString();
                 }
                 else
                 {
                     dropdownLogin.Visible = true;
                     dropdownRegister.Visible = true;
+                    appointPage.Visible = false;
+                    dropdownMenuButton.Text = "משתמש";
                 }
             }
         }

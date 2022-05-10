@@ -10,14 +10,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap-rtl.min.css">
 
-    <title>Hello, world!</title>
+    <title>PerfectoStudio!</title>
+
+<%--    <style>
+        body {
+            background-image: url('images/backgroundImg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% auto;
+        }
+</style>--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="homePage.aspx">
                         <img src="images/LogoWhite.png" style="height: 80px" /></a>
@@ -28,21 +38,19 @@
                     <div class="collapse navbar-collapse" id="navbarColor01">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 py-3">
                             <li class="nav-item active">
-                                <a class="nav-link" href="homePage.aspx">בית
-            <span class="visually-hidden">(נוכחי)</span>
-                                </a>
+                                <a class="nav-link" href="homePage.aspx">בית</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">אודות</a>
+                                <a class="nav-link" runat="server" href="aboutPage.aspx">אודות</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">תמונות</a>
+                                <a class="nav-link" runat="server" href="imagesPage.aspx">תמונות</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">מוצרים</a>
+                                <a class="nav-link" runat="server" href="productsPage.aspx">מוצרים</a>
                             </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="appointments.aspx">הזמנת תורים</a>
+                                <a class="nav-link" visible="false" id="appointPage" runat="server" href="appointments.aspx">הזמנת תורים</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" visible="false" ID="managerPage" runat="server" href="managerPage.aspx">עריכת תורים</a>
@@ -55,12 +63,12 @@
 
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <asp:Button class="btn link dropdown-toggle text-white" type="button" ID="dropdownMenuButton" runat="server" Text="|משתמש|" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                                <asp:Button class="btn link dropdown-toggle text-white" type="button" ID="dropdownMenuButton" runat="server" Text="משתמש" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" id="dropdownLogin" runat="server" visible="true" href="login.aspx">כניסה</a>
                                     <a class="dropdown-item" id="dropdownRegister" runat="server" visible="true" href="register.aspx">הרשמה</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">פרטי משתמש</a>
+                                    <a class="dropdown-item" runat="server" href="clientPage.aspx">פרטי משתמש</a>
                                 </div>
                             </li>
                         </ul>
@@ -70,7 +78,24 @@
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-
+                <footer>
+                <div class="container">
+                    <br />
+                    <br />
+        <div class="row">
+            <div class="col-sm-6" style="background-color: #b3d9ff;">
+                <h3>פרטי קשר:</h3>
+                <a href="tel:+97250-965-5560">מספר טלפון- 050-965-5560 </a>
+                <p>הרצל 63 / תרמ"ב 11 ראשון לציון</p>
+                <a href="login.aspx" class="btn btn-primary" role="button">login</a>
+            </div>
+            <div class="col-sm-6";">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.788833878165!2d34.80519318483837!3d31.96662498122423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b5a10e57d9bf%3A0x70bd55ecc1c08348!2z0KHQsNC70L7QvSDQutGA0LDRgdC-0YLRiyBQZXJmZWN0T1N0dWRpTw!5e0!3m2!1siw!2sil!4v1646137580368!5m2!1siw!2sil"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+        </footer>
     </form>
 
     <asp:ContentPlaceHolder ID="scripts" runat="server">

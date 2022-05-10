@@ -57,7 +57,6 @@ namespace DAL
             try
             {
                 //הפעולה פותחת את הדטהבייס ומחזירה את כל הנתונים לתוך טבלה חדשה בדטהסט
-
                 adapter.Fill(dt);
             }
             catch (Exception e)

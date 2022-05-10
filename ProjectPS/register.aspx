@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-    <div class="container">
+    <div class="container-fluid" style="margin-top:110px">
         <div class="row justify-content-md-center">
             <div class="col-lg-5">
                 <h1>הרשמה

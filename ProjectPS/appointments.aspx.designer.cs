@@ -24,6 +24,15 @@ namespace ProjectPS
         protected global::System.Web.UI.WebControls.DropDownList ename;
 
         /// <summary>
+        /// enameTreatment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList enameTreatment;
+
+        /// <summary>
         /// edate control.
         /// </summary>
         /// <remarks>
@@ -40,24 +49,6 @@ namespace ProjectPS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList etime;
-
-        /// <summary>
-        /// ecolor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ecolor;
-
-        /// <summary>
-        /// eicon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList eicon;
 
         /// <summary>
         /// edesc control.

@@ -12,7 +12,8 @@ namespace ProjectPS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            TextBoxEmail.BorderColor = System.Drawing.Color.Gray;
+            TextBoxPasswordLogin.BorderColor = System.Drawing.Color.Gray;
         }
         bool isLoggedIn = false;
         bool flagIsEmpty = false;
@@ -22,44 +23,99 @@ namespace ProjectPS
         {
             if (txt.Text == "")
             {
-                Response.Write("this is empty ");
+                //Response.Write("this is empty ");
+                txt.BorderColor = System.Drawing.Color.Red;
                 flagIsEmpty = true;
             }
             else
             {
                 Response.Write("ok ");
+                flagIsEmpty = false;
             }
         }
         protected void SubmitLogin_Click(object sender, EventArgs e)
         {
             ErrorIsEmpty(TextBoxEmail);
             ErrorIsEmpty(TextBoxPasswordLogin);
-            if (DAL.clientMethods.UserLoginEmailPass(TextBoxEmail.Text, TextBoxPasswordLogin.Text) == true)
+
+            if (flagIsEmpty == false) //check if the textBox arent empty
             {
-                Response.Write("Ok");
-                if (TextBoxEmail.Text == managerEmail)
+                if (DAL.clientMethods.IsExistsEmail(TextBoxEmail.Text) == true)//check if email is registered
                 {
-                    Session["isManager"] = "true";
+                    TextBoxEmail.BorderColor = System.Drawing.Color.Green;
+
+                    if (DAL.clientMethods.UserLoginEmailPass(TextBoxEmail.Text, TextBoxPasswordLogin.Text) == true)//check if password match email
+                    {
+                        TextBoxPasswordLogin.BorderColor = System.Drawing.Color.Green;
+                        Response.Write("Ok");
+                        if (TextBoxEmail.Text == managerEmail)
+                        {
+                            Session["isManager"] = "true";
+                        }
+                        else
+                        {
+                            Session["isManager"] = "false";
+                        }
+                        Session["isLoggedIn"] = "true";
+                        isLoggedIn = true;
+                        Session["UserName"] = DAL.clientMethods.GetNameByEmail(TextBoxEmail.Text);
+                        Session["UserEmail"] = TextBoxEmail.Text;
+                        Response.Redirect("homePage.aspx");
+                    }
+                    else
+                    {
+                        //password incorrect
+                        TextBoxEmail.BorderColor = System.Drawing.Color.LawnGreen;
+                        TextBoxPasswordLogin.BorderColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    Session["isManager"] = "false";
+                    //email incorrect/doesnt exist
+                    TextBoxEmail.BorderColor = System.Drawing.Color.Red;
                 }
-                Session["isLoggedIn"] = "true";
-                Response.Redirect("homePage.aspx");
-                isLoggedIn = true;
-            }
-            else if (DAL.clientMethods.IsExistsEmail(TextBoxEmail.Text) == false)
-            {
-                Response.Write("אימייל לא קיים");
-                Session["isLoggedIn"] = "false";
-
             }
             else
             {
-                Response.Write("סיסמה או אימייל לא נכונים");
-                Session["isLoggedIn"] = "false";
+                //email or password empty
             }
+
+
+
+            //=========================>>
+            //if (DAL.clientMethods.IsExistsEmail(TextBoxEmail.Text) == true)
+            //{
+
+            //    if ((DAL.clientMethods.UserLoginEmailPass(TextBoxEmail.Text, TextBoxPasswordLogin.Text) == true) && (flagIsEmpty == false))
+            //    {
+
+            //        Response.Write("Ok");
+            //        if (TextBoxEmail.Text == managerEmail)
+            //        {
+            //            Session["isManager"] = "true";
+            //        }
+            //        else
+            //        {
+            //            Session["isManager"] = "false";
+            //        }
+            //        Session["isLoggedIn"] = "true";
+            //        isLoggedIn = true;
+            //        Session["UserName"] = DAL.clientMethods.GetNameByEmail(TextBoxEmail.Text);
+            //        Session["UserEmail"] = TextBoxEmail.Text;
+            //        Response.Redirect("homePage.aspx");
+
+            //    }
+            //}
+            //else if (DAL.clientMethods.IsExistsEmail(TextBoxEmail.Text) == false)
+            //{
+            //    Response.Write("אימייל לא קיים");
+            //    Session["isLoggedIn"] = "false";
+            //}
+            //else
+            //{
+            //    Response.Write("סיסמה או אימייל לא נכונים");
+            //    Session["isLoggedIn"] = "false";
+            //}
         }
     }
 }

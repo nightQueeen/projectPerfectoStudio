@@ -11,42 +11,52 @@ namespace DAL
     public class appointmentMethods
     {
         //---------GET---------
+        public static DataTable GetAllAppointments()
+        {
+            string com = $"SELECT * FROM Appointment";
+            return oledbhelper.GetTable(com);
+        }
         public static DataTable GetAppointmentsForClient(int clientCode)
         {
-            string com = $"select * from appointment where clientCode={clientCode}";
+            string com = $"select * from Appointment where clientCode={clientCode}";
             return oledbhelper.GetTable(com);
         }
         public static DataTable GetAppointmentsForWorker(int workerCode)
         {
-            string com = $"SELECT * FROM appointment WHERE workerCode = {workerCode}";
+            string com = $"SELECT * FROM Appointment WHERE workerCode = {workerCode}";
             return oledbhelper.GetTable(com);
         }
-        public static DataTable GetAppointmentsByDate(DateTime dateTime)
+        public static DataTable GetAppointmentsByDate(DateTime dt)
         {
-            string com = $"SELECT * FROM appointment WHERE dateOf = {dateTime}";
+            string com = $"SELECT * FROM Appointment WHERE dateOf = #{dt.ToString("yyyy-MM-dd")}#";
+            return oledbhelper.GetTable(com);
+        }
+        public static DataTable GetAppointmentsByDate_Time(DateTime dt)
+        {
+            string com = $"SELECT * FROM Appointment WHERE dateOf = {dt.ToString("yyyy-MM-dd-HH-mm-ss")}";
             return oledbhelper.GetTable(com);
         }
         public static DataTable GetAppointmentsTypes()
         {
-            string com = $"SELECT appointCode FROM appointment";
+            string com = $"SELECT Appointment FROM appointment";
             return oledbhelper.GetTable(com);
         }
 
         //---------ADD---------
-        public static void addAppointent(DateTime dateOf, int clientCode, int workerCode)
+        public static void addAppointent(DateTime dateOf, int clientCode, int workerCode, DateTime timeOf)
         {
-            string com = "INSERT INTO Appointment(dateOf, clientCode, workerCode) VALUES ('" + dateOf + "','" + clientCode + "','" + workerCode + "')";
+            string com = "INSERT INTO Appointment(dateOf, clientCode, workerCode) VALUES ('" + dateOf.ToString("yyyy-MM-dd") + "','" + clientCode + "','" + workerCode + "','" + timeOf.ToString("HH,mm") + "')";
             oledbhelper.Execute(com);
         }
         //---------SET---------
-        public static void deleteAppointment(DateTime dateOf, int clientCode)//delete appointment
+        public static void deleteAppointment(DateTime dateOf, int clientCode, DateTime timeOf)//delete appointment
         {
-            string com = $"DELETE FROM Appointment WHERE dateOf = {dateOf} AND clientCode = {clientCode}";
+            string com = $"DELETE FROM Appointment WHERE dateOf = #{dateOf.ToString("yyyy-MM-dd")}# AND clientCode = {clientCode} AND timeOf = #{timeOf.ToString("HH,mm")}#";
             oledbhelper.Execute(com);
         }
-        public static void updateAppointment(int appointCode, DateTime dateOf, int clientCode, int workerCode)
+        public static void updateAppointment(DateTime dateOf, int clientCode, int workerCode, DateTime timeOf)
         {
-            string com = $"UPDATE Appointment SET dateOf = {dateOf}, clientCode = {clientCode}, workerCode = {workerCode} WHERE dateOf = {dateOf} AND clientCode = {clientCode}";
+            string com = $"UPDATE Appointment SET dateOf = #{dateOf.ToString("yyyy-MM-dd")}#, clientCode = {clientCode}, workerCode = {workerCode}, timeOf = #{timeOf.ToString("HH, mm")}# WHERE dateOf = {dateOf.ToString("yyyy-MM-dd")} AND clientCode = {clientCode} AND timeOf = #{timeOf.ToString("HH, mm")}#";
             oledbhelper.Execute(com);
         }
     }

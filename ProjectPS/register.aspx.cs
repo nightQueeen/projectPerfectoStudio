@@ -48,6 +48,7 @@ namespace ProjectPS
             {
                 DAL.clientMethods.AddClient(textBoxFirstName.Text, textBoxLastName.Text, textBoxPhoneNum.Text, textBoxEmail.Text, TextBoxPass.Text, textBoxDOB.Text);
                 Response.Redirect("homePage.aspx");
+                //send grid
             }
             flagIsEmpty = false;
         }

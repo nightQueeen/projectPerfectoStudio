@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="treatmentCategoryMethods.cs" />
-    <Compile Include="treatmentMethods2.cs" />
+    <Compile Include="treatmentTypeMethods.cs" />
     <Compile Include="workerMethods.cs" />
     <Compile Include="appointmentMethods.cs" />
     <Compile Include="oledbhelper.cs" />

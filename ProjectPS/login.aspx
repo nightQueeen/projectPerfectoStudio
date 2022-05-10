@@ -5,14 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-    <div class="container">
+    <div class="container-fluid" style="margin-top:110px">
         <div class="row justify-content-md-center">
             <div class="col-lg-5">
                 <h1>כניסה</h1>
                 <div class="form-group">
                     <label for="<%= TextBoxEmail.ClientID %>">כתובת אימייל</label>
                     <asp:TextBox type="email" class="form-control" ID="TextBoxEmail" aria-describedby="emailHelp" placeholder="הכנסת אימייל" runat="server"></asp:TextBox>
-
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">סיסמה</label>
