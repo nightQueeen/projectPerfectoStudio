@@ -8,6 +8,7 @@
 
     <div class="container" style="margin-top:110px">
         <h1 style="text-align: center">דף בית</h1>
+                <p style="text-align:center">☴</p>
         <br />
         <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -21,21 +22,21 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/nailsWideTemp.png" class="d-block w-100" alt="...">
+                        <img src="images/carussel/wideNails3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>לק ג'ל קלאסי</h5>
                             <p>הנחה של 15% בקנייה ראשונה!</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="images/nailsWide2Temp.png" class="d-block w-100" alt="...">
+                        <img src="images/carussel/wideNails2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>לק ג'ל</h5>
                             <p>הנחה של 15% בקנייה ראשונה!</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="images/nailsWide3Temp.png" class="d-block w-100" alt="...">
+                        <img src="images/carussel/wideNails1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>לק עם בנייה</h5>
                             <p>הנחה של 15% בקנייה ראשונה!</p>

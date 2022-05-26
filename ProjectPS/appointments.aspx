@@ -11,63 +11,66 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid" style="margin-top:80px">
-        
-    <div class="p-5">
-        <h2 class="mt-4">קביעת תורים</h2>
-        <div class="card">
-            <div class="card-body p-0">
-                <div id="calendar"></div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid" style="margin-top: 80px">
 
-    <!-- calendar modal -->
-    <div id="modal-view-event" class="modal modal-top fade calendar-modal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
-                    <div class="event-body"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <div class="p-5">
+            <h2 class="mt-4" style="text-align:center">קביעת תורים</h2>
+                    <p style="text-align:center">☴</p>
+
+            <div class="card">
+                <div class="card-body p-0">
+                    <div id="calendar"></div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div id="add-event">
+        <!-- calendar modal -->
+        <div id="modal-view-event" class="modal modal-top fade calendar-modal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
                     <div class="modal-body">
-                        <h4>בחר/י פרטי תור</h4>
-                        <div class="form-group">
-                            <label>סוג תור</label>
-                            <asp:DropDownList class="form-control" name="ename" AutoPostBack="true" ID="ename" runat="server" OnSelectedIndexChanged="OnIndexChange_Category">
-                            </asp:DropDownList>
-<%--                            <input type="text" class="form-control" name="ename">--%>
-                        </div>
-                         <div class="form-group">
-                            <label>סוג טיפול</label>
-                            <asp:DropDownList class="form-control" Visible="true" name="ename" ID="enameTreatment" runat="server">
-                            </asp:DropDownList>
-<%--                            <input type="text" class="form-control" name="ename">--%>
-                        </div>
-                        <div class="form-group">
-                            <label>תאריך</label>
-                            <asp:TextBox type='date' class="form-control" name="edate" ID="edate" runat="server"></asp:TextBox>
-                        </div>
-                         <div class="form-group">
-                            <label>שעות פנויות</label>
-                            <asp:DropDownList type='text' class="form-control" name="edate" ID="etime" runat="server">
-                                <asp:ListItem>10:00:00</asp:ListItem>
-                                <asp:ListItem>13:00:00</asp:ListItem>
-                                <asp:ListItem>15:00:00</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <%--<div class="form-group">
+                        <h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
+                        <div class="event-body"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div id="add-event">
+                        <div class="modal-body">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+
+                                    <h4>בחר/י פרטי תור</h4>
+                                    <div class="form-group">
+                                        <label>סוג תור</label>
+                                        <asp:DropDownList class="form-control" name="ename" AutoPostBack="true" ID="ename" runat="server" OnSelectedIndexChanged="OnIndexChange_Category">
+                                        </asp:DropDownList>
+                                        <%--                            <input type="text" class="form-control" name="ename">--%>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>סוג טיפול</label>
+                                        <asp:DropDownList class="form-control" Visible="true" name="ename" ID="enameTreatment" runat="server">
+                                        </asp:DropDownList>
+                                        <%--                            <input type="text" class="form-control" name="ename">--%>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>תאריך</label>
+                                        <asp:TextBox type='date' class="form-control" name="edate" AutoPostBack="true" ID="edate" OnTextChanged="edate_TextChanged" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>שעות פנויות</label>
+                                        <asp:DropDownList type='text' class="form-control" name="edate" ID="etime" runat="server">
+                                        </asp:DropDownList>
+                                    </div>
+                                    <%--<div class="form-group">
                         <label>סוג תור/צבע</label>
                             <asp:DropDownList class="form-control" name="ecolor" ID="ecolor" runat="server">
                                 <asp:listitem text="default" value="fc-bg-default"></asp:listitem>
@@ -77,7 +80,7 @@
                                 <asp:listitem text="deep sky blue" value="fc-bg-deepskyblue"></asp:listitem>
                             </asp:DropDownList>
                         </div>--%>
-                     <%--   <div class="form-group">
+                                    <%--   <div class="form-group">
                             <label>סוג תור/לוגו</label>
                             <asp:DropDownList class="form-control" name="eicon" ID="eicon" runat="server">
                                 <asp:listitem text="cog" value="cog"></asp:listitem>
@@ -86,19 +89,22 @@
                                 <asp:listitem text="calendar" value="calendar"></asp:listitem>
                             </asp:DropDownList>
                         </div>--%>
-                        <div class="form-group">
-                            <label>הערות</label>
-                            <asp:TextBox class="form-control" name="edesc" ID="edesc" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
+                                    <div class="form-group">
+                                        <label>הערות</label>
+                                        <asp:TextBox class="form-control" name="edesc" ID="edesc" runat="server"></asp:TextBox>
+                                    </div>
+                                    </div>
+                                    </ContentTemplate>
+                            </asp:UpdatePanel>
                     <div class="modal-footer">
                         <asp:Button type="submit" class="btn btn-primary" OnClick="ButtonSave_Click" ID="ButtonSave" runat="server" Text="שמירה" />
                         <asp:Button type="button" class="btn btn-primary" data-dismiss="modal" ID="ButtonClose" runat="server" Text="סגירה" />
                     </div>
-                </div>
+                                
+                        </div>
+                    </div>
             </div>
         </div>
-    </div>
     </div>
 
 

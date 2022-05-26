@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
-
-// using SendGrid's C# Library
-// https://github.com/sendgrid/sendgrid-csharp
-using SendGrid;
+using SendGrid; // using SendGrid's C# Library
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
 
 namespace ProjectPS
 {
-    internal class sendGrid
+    public class sendGrid
     {
         private static void Main()
         {
-            Execute().Wait();
+            //string email = "mail";
+            //string name = "name";
+            //Execute(email, name).Wait();
         }
 
-        static async Task Execute()
+         public static async Task Execute(string email, string name, string message)
         {
-            var apiKey = "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";
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("mayakatz03@gmail.com", "perfectoStudio");
-            var subject = "perfectoStudio succssful register";
-            var to = new EmailAddress("test@example.com", "Example User");
-            var plainTextContent = "text paragraph";
-            var htmlContent = "<strong>text paragraph</strong>";
+            var from = new EmailAddress("st3191430@kshapira.ort.org.il", "perfectoStudio");
+            var subject = "perfectoStudio";
+            var to = new EmailAddress(email, name);
+            var plainTextContent = "<strong>בקנייה ראשונה יש  הנחה של 15%!</strong>" + message;
+            var htmlContent = message;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
+            client.SendEmailAsync(msg);
         }
     }
 }

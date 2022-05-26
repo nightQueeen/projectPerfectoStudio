@@ -60,6 +60,15 @@ namespace ProjectPS
         protected global::System.Web.UI.WebControls.TextBox textBoxDOB2;
 
         /// <summary>
+        /// DropDownEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownEmail;
+
+        /// <summary>
         /// ButtonSend2 control.
         /// </summary>
         /// <remarks>
@@ -85,15 +94,6 @@ namespace ProjectPS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonDelete;
-
-        /// <summary>
-        /// ButtonAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAdd;
 
         /// <summary>
         /// GridViewDelete control.

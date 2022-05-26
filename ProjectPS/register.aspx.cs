@@ -56,9 +56,13 @@ namespace ProjectPS
                 textBoxFirstName.BorderColor = System.Drawing.Color.LawnGreen;
                 textBoxLastName.BorderColor = System.Drawing.Color.LawnGreen;
                 textBoxPhoneNum.BorderColor = System.Drawing.Color.LawnGreen;
+                if (CheckBoxRegister.Checked == true)
+                {
+                    string message = "תודה על ההרשמה";
+                    sendGrid.Execute(textBoxEmail.Text, textBoxFirstName.Text, message); //send email to client
+                }
                 DAL.clientMethods.AddClient(textBoxFirstName.Text, textBoxLastName.Text, textBoxPhoneNum.Text, textBoxEmail.Text, TextBoxPass.Text, textBoxDOB.Text);
                 Response.Redirect("homePage.aspx");
-                //send grid
             }
             flagIsEmpty = false;
         }

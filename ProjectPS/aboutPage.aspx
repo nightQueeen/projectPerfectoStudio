@@ -3,10 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid" style="background-color: white; margin-top: 110px">
-        <div class="container p-3 my-3 border">
+    <div class="container-fluid" style="background-color:transparent; margin-top: 110px">
+        <div class="container p-3 my-3 border" style="background-color:white">
             <div class="container-fluid p-3 my-3" style="background-color:#b3d9ff">
-                <h1>שמי אולסיה פבלוב ואני מזמינה אתכם לסלון שלי – PerfectOStudiO.</h1>
+                <h1 style="text-align:center">שמי אולסיה פבלוב ואני מזמינה אתכם לסלון שלי – PerfectOStudiO.</h1>
+                        <p style="text-align:center">☴</p>
             </div>
             <p>
                 שלום רב! שמי אולסיה פבלוב ואני מזמינה אתכם לסלון שלי – PerfectOStudiO.<br />

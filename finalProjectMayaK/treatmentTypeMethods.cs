@@ -16,6 +16,32 @@ namespace DAL
             string com = $"select typeName from TreatmentType";
             return oledbhelper.GetTable(com);
         }
+        public static int GetLengthByTreatmentID(int typeID)
+        {
+            string com = $"SELECT * FROM TreatmentType WHERE treatmentTypeCode={typeID}";
+            DataTable tbl = oledbhelper.GetTable(com);
+            int len = 0;
+            foreach (DataRow dataR in tbl.Rows)
+            {
+                len = int.Parse(dataR["treatmentLength"].ToString());
+                return len;
+            }
+            return len;
+        }
+        public static int GetLengthByTreatmentName(string name)
+        {
+            string com = $"SELECT * FROM TreatmentType WHERE typeName='{name}'";
+            DataTable tbl = oledbhelper.GetTable(com);
+            int len = 0;
+            foreach (DataRow dataR in tbl.Rows)
+            {
+                len = int.Parse(dataR["treatmentLength"].ToString());
+                return len;
+            }
+            return len;
+
+            //int len = int.Parse(tbl.Rows[0].ToString());
+        }
         public static DataTable GetTreatmentInfoByID(int treatmentID) //get all by id
         {
             string com = $"SELECT * FROM TreatmentType WHERE treatmentTypeCode={treatmentID}";
@@ -25,6 +51,18 @@ namespace DAL
         {
             string com = $"SELECT price FROM TreatmentType WHERE treatmentTypeCode={treatmentID}";
             return oledbhelper.GetTable(com);
+        }
+        public static int GetCodeByName(string name)
+        {
+            string com = $"SELECT * FROM TreatmentType WHERE typeName='{name}'";
+            DataTable tbl = oledbhelper.GetTable(com);
+            int id = 0;
+            foreach (DataRow dataR in tbl.Rows)
+            {
+                id = int.Parse(dataR["treatmentTypeCode"].ToString());
+                return id;
+            }
+            return id;
         }
         public static DataTable GetTreatmentTypeByCategoryID(int categoryID)//get type by id
         {

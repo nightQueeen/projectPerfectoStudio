@@ -31,10 +31,34 @@ namespace DAL
             string com = $"select clientFirstName from Client where clientEmail='{x}'";
             return oledbhelper.GetTable(com);
         }
-        public static DataTable GetClientIdByEmail(string x)//ID by email
+        public static string GetNameByEmailString(string x)
+        {
+            string com = $"select * FROM Client where clientEmail='{x}'";
+            DataTable tbl = oledbhelper.GetTable(com);
+            string name = "user";
+            foreach (DataRow dataR in tbl.Rows)
+            {
+                name = dataR["clientFirstName"].ToString();
+                return name;
+            }
+            return name;
+        }
+            public static DataTable GetClientIdByEmail(string x)//ID by email
         {
             string com = $"select clientCode FROM Client where clientEmail='{x}'";
             return oledbhelper.GetTable(com);
+        }
+        public static int GetClientIdByEmailInt(string x)
+        {
+            string com = $"select * FROM Client where clientEmail='{x}'";
+            DataTable tbl = oledbhelper.GetTable(com);
+            int id = 0;
+            foreach (DataRow dataR in tbl.Rows)
+            {
+                id = int.Parse(dataR["clientCode"].ToString());
+                return id;
+            }
+            return id;
         }
         public static bool IsExistsEmail(string x) //check if email exists
         {

@@ -12,14 +12,14 @@
 
     <title>PerfectoStudio!</title>
 
-<%--    <style>
+    <style>
         body {
             background-image: url('images/backgroundImg.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% auto;
         }
-</style>--%>
+</style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

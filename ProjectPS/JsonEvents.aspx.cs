@@ -43,7 +43,8 @@ namespace ProjectPS
             {
 
                 DateTime start = row.Field<DateTime>("dateOf");
-                DateTime end = start.AddMinutes(row.Field<int>("lengthOf"));
+                int length = treatmentTypeMethods.GetLengthByTreatmentID(row.Field<int>("treatmentTypeCode"));
+                DateTime end = start.AddMinutes(length);
                 string startString = String.Format("{0:s}", start);
                 string endString = String.Format("{0:s}", end);
 

@@ -45,7 +45,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="margin-top: 110px">
-        <h1>מוצרים</h1> 
+        <h1 style="text-align:center">מוצרים</h1> 
+                <p style="text-align:center">☴</p>
         <h4> מוצרים עם הסבר מורחב וטווח מחירים</h4>
         <div class="row">
             

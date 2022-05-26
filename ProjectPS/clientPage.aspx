@@ -15,7 +15,7 @@
                         <asp:GridView ID="GridClientAppiont" BackColor="White" runat="server"></asp:GridView>
                     </div>
                 </div>
-                <asp:Button type="button" class="btn btn-danger" ID="Button1" runat="server" Text="התנתקות" />
+                <asp:Button type="button" class="btn btn-danger" ID="Button1" OnClick="Button1_Click" runat="server" Text="התנתקות" />
             </div>
         </div>
     </div>
